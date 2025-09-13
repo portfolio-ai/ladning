@@ -6,6 +6,7 @@ import tailwind from '@astrojs/tailwind';
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind()],
+  output: 'static',
   site: 'https://portfolio-ai.github.io/landing',
   base: '/landing',
 });
