@@ -1,5 +1,6 @@
 ---
-// Hero section for Portfolio AI landing page
+import { Image } from "astro:assets"
+import heroImage from "../assets/hero-image.jpeg"
 ---
 <section class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/5 via-background to-secondary/10">
   <div class="container mx-auto px-4 py-20">
@@ -59,11 +60,7 @@
 
       <div class="relative">
         <div class="absolute inset-0 bg-gradient-to-r from-chart-1/20 to-chart-2/20 rounded-3xl blur-3xl"></div>
-        <img 
-          src="https://images.unsplash.com/photo-1748439281934-2803c6a3ee36?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmaW5hbmNpYWwlMjBjaGFydHMlMjBkYXNoYm9hcmR8ZW58MXx8fHwxNzU3NTg2NTY5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-          alt="Financial Dashboard" 
-          class="relative rounded-3xl shadow-2xl w-full h-auto"
-        />
+        <Image src={heroImage} alt="Financial Dashboard" class="relative rounded-3xl shadow-2xl w-full h-auto" />
       </div>
     </div>
   </div>

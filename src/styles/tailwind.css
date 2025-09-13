@@ -5,19 +5,19 @@
 :root {
   --font-size: 16px;
   --background: #ffffff;
-  --foreground: oklch(0.145 0 0);
-  --card: #ffffff;
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
+  --foreground: #1a1a1a;
+  --card: #fafafa;
+  --card-foreground: #1a1a1a;
+  --popover: #ffffff;
+  --popover-foreground: #1a1a1a;
   --primary: #030213;
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.95 0.0058 264.53);
-  --secondary-foreground: #030213;
-  --muted: #ececf0;
-  --muted-foreground: #717182;
+  --primary-foreground: #ffffff;
+  --secondary: #f8f9fa;
+  --secondary-foreground: #1a1a1a;
+  --muted: #f5f5f7;
+  --muted-foreground: #525252;
   --accent: #e9ebef;
-  --accent-foreground: #030213;
+  --accent-foreground: #1a1a1a;
   --destructive: #d4183d;
   --destructive-foreground: #ffffff;
   --border: rgba(0, 0, 0, 0.1);
@@ -26,11 +26,104 @@
   --switch-background: #cbced4;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  --ring: #666666;
+  --chart-1: #ff6b35;
+  --chart-2: #2563eb;
+  --chart-3: #059669;
+  --chart-4: #dc2626;
+  --chart-5: #7c3aed;
   --radius: 0.625rem;
+}
+
+/* Enhanced smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Section transitions and animations */
+section {
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Fade in animation for sections */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply fade-in animation to sections when they come into view */
+section {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Smooth transitions for navigation links */
+nav a {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Active navigation link indicator */
+nav a.text-primary::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary);
+  transform: scaleX(1);
+  transition: transform 0.3s ease;
+}
+
+nav a:not(.text-primary)::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+nav a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Improve scrollbar appearance */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
+
+/* Custom high-contrast colors for accessibility */
+.text-success-high-contrast {
+  color: #15803d; /* green-700 */
+}
+
+.text-danger-high-contrast {
+  color: #b91c1c; /* red-700 */
+}
+
+.text-muted-accessible {
+  color: #525252; /* neutral-600 for better contrast */
 }
