@@ -1,0 +1,231 @@
+---
+// Analytics/Charts preview for Portfolio AI landing page
+---
+<section class="py-20 bg-background" id="analytics">
+  <div class="container mx-auto px-4">
+    <div class="text-center space-y-4 mb-16">
+      <h2 class="text-3xl lg:text-4xl font-bold text-foreground">
+        Advanced Analytics & Visualization
+      </h2>
+      <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+        Get deep insights into your portfolio with our comprehensive suite of analytical tools and interactive charts.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-8 mb-12">
+      <!-- Portfolio Performance Chart -->
+      <div class="bg-card rounded-lg shadow-lg p-6">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h3 class="text-xl font-semibold text-card-foreground">Portfolio Performance</h3>
+            <p class="text-sm text-muted-foreground">Track your portfolio value and growth over time</p>
+          </div>
+          <span class="inline-flex items-center rounded-full bg-secondary text-secondary-foreground px-2.5 py-0.5 text-xs font-semibold">+18.9% YTD</span>
+        </div>
+        <div class="h-[300px]">
+          <canvas id="portfolioChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Asset Allocation Chart -->
+      <div class="bg-card rounded-lg shadow-lg p-6">
+        <div class="mb-4">
+          <h3 class="text-xl font-semibold text-card-foreground">Asset Allocation</h3>
+          <p class="text-sm text-muted-foreground">Diversification breakdown of your portfolio</p>
+        </div>
+        <div class="h-[300px] flex items-center justify-center">
+          <canvas id="allocationChart" width="250" height="250"></canvas>
+        </div>
+        <div class="grid grid-cols-2 gap-4 mt-4">
+          <div class="flex items-center gap-2">
+            <div class="w-3 h-3 rounded-full bg-chart-1"></div>
+            <span class="text-sm">Stocks: 45%</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="w-3 h-3 rounded-full bg-chart-2"></div>
+            <span class="text-sm">Bonds: 25%</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="w-3 h-3 rounded-full bg-chart-3"></div>
+            <span class="text-sm">ETFs: 20%</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="w-3 h-3 rounded-full bg-chart-4"></div>
+            <span class="text-sm">Crypto: 10%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI Performance Analysis -->
+    <div class="bg-card rounded-lg shadow-lg p-6">
+      <div class="mb-6">
+        <h3 class="text-xl font-semibold text-card-foreground">AI Performance Analysis</h3>
+        <p class="text-sm text-muted-foreground">Individual asset performance with AI-powered risk assessment</p>
+      </div>
+      <div class="space-y-4">
+        <div class="flex items-center justify-between p-4 bg-secondary/10 rounded-lg">
+          <div class="flex items-center gap-4">
+            <div class="font-medium">AAPL</div>
+            <span class="inline-flex items-center rounded-full bg-secondary text-secondary-foreground px-2.5 py-0.5 text-xs font-semibold">Low Risk</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="font-bold text-green-600">+15.2%</div>
+            <div class="w-20 h-2 bg-secondary rounded-full overflow-hidden">
+              <div class="h-full bg-green-500" style="width: 15.2%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between p-4 bg-secondary/10 rounded-lg">
+          <div class="flex items-center gap-4">
+            <div class="font-medium">GOOGL</div>
+            <span class="inline-flex items-center rounded-full bg-accent text-accent-foreground px-2.5 py-0.5 text-xs font-semibold border">Medium Risk</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="font-bold text-green-600">+22.8%</div>
+            <div class="w-20 h-2 bg-secondary rounded-full overflow-hidden">
+              <div class="h-full bg-green-500" style="width: 22.8%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between p-4 bg-secondary/10 rounded-lg">
+          <div class="flex items-center gap-4">
+            <div class="font-medium">TSLA</div>
+            <span class="inline-flex items-center rounded-full bg-destructive text-destructive-foreground px-2.5 py-0.5 text-xs font-semibold">High Risk</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="font-bold text-red-600">-8.5%</div>
+            <div class="w-20 h-2 bg-secondary rounded-full overflow-hidden">
+              <div class="h-full bg-red-500" style="width: 8.5%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between p-4 bg-secondary/10 rounded-lg">
+          <div class="flex items-center gap-4">
+            <div class="font-medium">BTC</div>
+            <span class="inline-flex items-center rounded-full bg-destructive text-destructive-foreground px-2.5 py-0.5 text-xs font-semibold">Very High Risk</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="font-bold text-green-600">+45.3%</div>
+            <div class="w-20 h-2 bg-secondary rounded-full overflow-hidden">
+              <div class="h-full bg-green-500" style="width: 45.3%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between p-4 bg-secondary/10 rounded-lg">
+          <div class="flex items-center gap-4">
+            <div class="font-medium">NVDA</div>
+            <span class="inline-flex items-center rounded-full bg-destructive text-destructive-foreground px-2.5 py-0.5 text-xs font-semibold">High Risk</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="font-bold text-green-600">+67.2%</div>
+            <div class="w-20 h-2 bg-secondary rounded-full overflow-hidden">
+              <div class="h-full bg-green-500" style="width: 67.2%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between p-4 bg-secondary/10 rounded-lg">
+          <div class="flex items-center gap-4">
+            <div class="font-medium">SPY</div>
+            <span class="inline-flex items-center rounded-full bg-secondary text-secondary-foreground px-2.5 py-0.5 text-xs font-semibold">Low Risk</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="font-bold text-green-600">+12.4%</div>
+            <div class="w-20 h-2 bg-secondary rounded-full overflow-hidden">
+              <div class="h-full bg-green-500" style="width: 12.4%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { Chart, registerables } from 'chart.js';
+  Chart.register(...registerables);
+
+  // Get CSS variables for consistent theming
+  const getChartColor = (chartVar: string) => {
+    return getComputedStyle(document.documentElement).getPropertyValue(chartVar).trim();
+  };
+
+  // Wait for DOM to be ready
+  document.addEventListener('DOMContentLoaded', () => {
+    // Portfolio Performance Chart
+    const portfolioCtx = document.getElementById('portfolioChart') as HTMLCanvasElement;
+    if (portfolioCtx) {
+      new Chart(portfolioCtx, {
+        type: 'line',
+        data: {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+          datasets: [{
+            label: 'Portfolio Value',
+            data: [10000, 12500, 11800, 15200, 17600, 19300],
+            borderColor: getChartColor('--chart-1') || '#f59e0b',
+            backgroundColor: (getChartColor('--chart-1') || '#f59e0b') + '20',
+            fill: true,
+            tension: 0.4,
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: false,
+              grid: {
+                color: 'rgba(0,0,0,0.1)'
+              }
+            },
+            x: {
+              grid: {
+                display: false
+              }
+            }
+          }
+        }
+      });
+    }
+
+    // Asset Allocation Chart
+    const allocationCtx = document.getElementById('allocationChart') as HTMLCanvasElement;
+    if (allocationCtx) {
+      new Chart(allocationCtx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Stocks', 'Bonds', 'ETFs', 'Crypto'],
+          datasets: [{
+            data: [45, 25, 20, 10],
+            backgroundColor: [
+              getChartColor('--chart-1') || '#f59e0b',
+              getChartColor('--chart-2') || '#3b82f6',
+              getChartColor('--chart-3') || '#10b981',
+              getChartColor('--chart-4') || '#f43f5e'
+            ],
+            borderWidth: 0,
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false
+            }
+          }
+        }
+      });
+    }
+  });
+</script>

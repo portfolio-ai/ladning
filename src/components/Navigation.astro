@@ -1,0 +1,98 @@
+---
+// Navigation bar for Portfolio AI landing page
+---
+<nav class="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between h-14">
+      <!-- Logo -->
+      <div class="flex items-center gap-2">
+        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 17l6-6 4 4 8-8"></path>
+        </svg>
+        <span class="text-lg font-bold text-foreground">Portfolio AI</span>
+        <span class="ml-1 px-1.5 py-0.5 rounded bg-secondary text-secondary-foreground text-xs font-semibold">Beta</span>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden lg:flex items-center gap-6">
+        <a href="#features" class="text-foreground hover:text-primary transition-colors text-sm">Features</a>
+        <a href="#analytics" class="text-foreground hover:text-primary transition-colors text-sm">Analytics</a>
+        <a href="#contact" class="text-foreground hover:text-primary transition-colors text-sm">Contact</a>
+      </div>
+
+      <!-- CTA Buttons -->
+      <div class="hidden lg:flex items-center gap-3">
+        <a href="#signin" 
+           class="inline-flex items-center justify-center px-3 py-1.5 border border-primary text-primary rounded-md font-medium text-sm hover:bg-primary hover:text-primary-foreground transition-colors">
+          Sign In
+        </a>
+        <a href="#waitlist" 
+           class="inline-flex items-center justify-center px-3 py-1.5 bg-primary text-primary-foreground rounded-md font-medium text-sm hover:bg-primary/90 transition-colors">
+          Join Waitlist
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button class="lg:hidden p-1.5 hover:bg-accent rounded-md transition-colors" id="mobile-menu-toggle">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="menu-icon">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <svg class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="close-icon">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div class="lg:hidden py-4 border-t border-border hidden" id="mobile-menu">
+      <div class="flex flex-col gap-4">
+        <a href="#features" class="text-foreground hover:text-primary transition-colors text-sm">Features</a>
+        <a href="#analytics" class="text-foreground hover:text-primary transition-colors text-sm">Analytics</a>
+        <a href="#contact" class="text-foreground hover:text-primary transition-colors text-sm">Contact</a>
+        <div class="flex flex-col gap-2 mt-4">
+          <a href="#signin" 
+             class="inline-flex items-center justify-center px-3 py-2 border border-primary text-primary rounded-md font-medium text-sm hover:bg-primary hover:text-primary-foreground transition-colors">
+            Sign In
+          </a>
+          <a href="#waitlist" 
+             class="inline-flex items-center justify-center px-3 py-2 bg-primary text-primary-foreground rounded-md font-medium text-sm hover:bg-primary/90 transition-colors">
+            Join Waitlist
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    mobileMenuToggle?.addEventListener('click', () => {
+      const isHidden = mobileMenu?.classList.contains('hidden');
+      
+      if (isHidden) {
+        mobileMenu?.classList.remove('hidden');
+        menuIcon?.classList.add('hidden');
+        closeIcon?.classList.remove('hidden');
+      } else {
+        mobileMenu?.classList.add('hidden');
+        menuIcon?.classList.remove('hidden');
+        closeIcon?.classList.add('hidden');
+      }
+    });
+
+    // Close mobile menu when clicking on a link
+    const mobileLinks = mobileMenu?.querySelectorAll('a');
+    mobileLinks?.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu?.classList.add('hidden');
+        menuIcon?.classList.remove('hidden');
+        closeIcon?.classList.add('hidden');
+      });
+    });
+  });
+</script>
