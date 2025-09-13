@@ -1,7 +1,6 @@
 ---
 import { Image } from "astro:assets"
 import aiProcessorImage from "../assets/ai-processor.jpeg"
-import { actions } from 'astro:actions';
 ---
 <section class="py-20 bg-gradient-to-r from-primary/5 to-secondary/5" id="contact">
   <div class="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
@@ -19,7 +18,7 @@ import { actions } from 'astro:actions';
       <Image src={aiProcessorImage} alt="AI Processor working on the best investments" class="rounded-2xl shadow-lg max-w-xs" loading="eager" />
     </div>
     <div>
-      <form class="bg-white rounded-2xl shadow-xl p-8 max-w-md mx-auto flex flex-col gap-4" action={actions.send}>
+      <form class="bg-white rounded-2xl shadow-xl p-8 max-w-md mx-auto flex flex-col gap-4">
         <label for="name" class="font-medium text-gray-900">Full Name</label>
         <input id="name" name="name" type="text" placeholder="Enter your full name" required class="px-4 py-3 border border-gray-200 rounded-lg" />
         <label for="email" class="font-medium text-gray-900">Email Address</label>
